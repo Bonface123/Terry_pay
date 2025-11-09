@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Young Writers Showcase Hub{% endblock %}
+
+{% block content %}
+<section class="dashboard container">
+    <h1>Your Dashboard</h1>
+
+    <div class="dashboard-actions">
+        <a href="{{ url_for('gallery') }}" class="btn btn-primary">View Gallery</a>
+        <a href="{{ url_for('submit_poem') }}" class="btn btn-secondary">Submit a New Poem</a>
+    </div>
+
+    <h2>Your Poems</h2>
+    {% if poems %}
+        <ul class="poem-list">
+            {% for poem in poems %}
+                <li class="poem-item">
+                    <h3>{{ poem.title }}</h3>
+                    <p>{{ poem.content[:150] }}{% if poem.content|length > 150 %}...{% endif %}</p>
+                    <p><strong>Category:</strong> {{ poem.category }}</p>
+                    {% if poem.file %}
+                        <p><a href="{{ url_for('download_file', filename=poem.file) }}" class="btn btn-download">Download File</a></p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't submitted any poems yet.</p>
+    {% endif %}
+</section>
+{% endblock %}

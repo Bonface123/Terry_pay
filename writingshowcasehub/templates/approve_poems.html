@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Approve Poems{% endblock %}
+
+{% block content %}
+<h1>Approve Poems</h1>
+
+{% if poems.items %}
+    <ul>
+        {% for poem in poems.items %}
+            <li>
+                <h3>{{ poem.title }}</h3>
+                <p>{{ poem.content[:100] }}...</p>
+                <p><strong>Category:</strong> {{ poem.category }}</p>
+                <p><strong>Author:</strong> {{ poem.author.username }}</p>
+                <form method="POST" action="{{ url_for('approve_poems', page=poems.page) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="poem_id" value="{{ poem.id }}">
+                    <button type="submit" name="action" value="approve" class="btn btn-success">Approve</button>
+                    <button type="submit" name="action" value="reject" class="btn btn-danger">Reject</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+        {% if poems.has_prev %}
+            <a href="{{ url_for('approve_poems', page=poems.prev_num) }}">Previous</a>
+        {% endif %}
+        <span>Page {{ poems.page }} of {{ poems.pages }}</span>
+        {% if poems.has_next %}
+            <a href="{{ url_for('approve_poems', page=poems.next_num) }}">Next</a>
+        {% endif %}
+    </div>
+{% else %}
+    <p>No poems are pending approval.</p>
+{% endif %}
+{% endblock %}

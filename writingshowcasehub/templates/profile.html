@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile - Showcase Hub{% endblock %}
+
+{% block content %}
+<h1>Your Profile</h1>
+<p><strong>Username:</strong> {{ user.username }}</p>
+<p><strong>Bio:</strong> {{ user.bio }}</p>
+<a href="{{ url_for('dashboard') }}" class="btn">Back to Dashboard</a>
+{% endblock %}

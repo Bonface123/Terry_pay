@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ poem.title }} - Showcase Hub{% endblock %}
+
+{% block content %}
+<h1>{{ poem.title }}</h1>
+<p><strong>Author:</strong> {{ poem.author.username }}</p>
+<p><strong>Category:</strong> {{ poem.category }}</p>
+<p>{{ poem.content }}</p>
+
+<!-- Like Button -->
+<form action="{{ url_for('like_poem', poem_id=poem.id) }}" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button type="submit" class="btn">Like ({{ poem.likes }})</button>
+</form>
+
+<!-- Comments Section -->
+<h2>Comments</h2>
+<ul>
+    {% for comment in poem.comments %}
+    <li>
+        <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+<!-- Add a Comment -->
+<form action="{{ url_for('add_comment', poem_id=poem.id) }}" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <textarea name="comment" placeholder="Add a comment..." required></textarea>
+    <button type="submit" class="btn">Submit</button>
+</form>
+
+{% if poem.file %}
+<a href="{{ url_for('download_file', filename=poem.file) }}" class="btn">Download File</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<h1>Welcome, Admin!</h1>
+<p>Manage users, poems, and more from here.</p>
+<br><br>
+<a href="{{ url_for('view_users') }}" class="btn">View Users</a>
+<br><br>
+<a href="{{ url_for('dashboard') }}" class="btn">Go to User Dashboard</a>
+<br><br>
+<a href="{{ url_for('approve_poems') }}" class="btn btn-primary">Approve Poems</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin - Showcase Hub{% endblock %}
+
+{% block content %}
+<h1>Admin Panel</h1>
+<br><br>
+<a href="{{ url_for('view_users') }}" class="btn">View Users</a>
+<h2>Pending Poems</h2>
+{% if poems %}
+    <ul>
+        {% for poem in poems %}
+            <li>
+                <h3>{{ poem.title }}</h3>
+                <p>{{ poem.content[:100] if poem.content else 'No content available' }}...</p>
+                <p><strong>Category:</strong> {{ poem.category }}</p>
+                <p><strong>Author:</strong> {{ poem.author.username }}</p>
+                <a href="{{ url_for('approve', poem_id=poem.id) }}" class="btn">Approve</a>
+                <br><br><br><br>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No poems are pending approval.</p>
+{% endif %}
+{% endblock %}

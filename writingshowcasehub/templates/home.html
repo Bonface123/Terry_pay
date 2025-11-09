@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Young Writers Showcase Hub{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Welcome to the Young Writers Showcase Hub</h1>
+        <p>Where young voices rise, connect, and inspire.</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('signup') }}" class="btn btn-primary">Join Now</a>
+            <a href="{{ url_for('submit_poem') }}" class="btn btn-secondary">Upload Your Poem</a>
+        </div>
+    </div>
+</section>
+
+<section class="features container">
+    <div class="feature">
+        <i class="fas fa-book-open feature-icon"></i>
+        <h3>Read Poems</h3>
+        <p>Explore a diverse collection of poems from young writers worldwide.</p>
+    </div>
+    <div class="feature">
+        <i class="fas fa-user-graduate feature-icon"></i>
+        <h3>User Profiles</h3>
+        <p>Create your profile and connect with fellow poets and storytellers.</p>
+    </div>
+    <div class="feature">
+        <i class="fas fa-search feature-icon"></i>
+        <h3>Admin Reviewed</h3>
+        <p>Quality content curated and reviewed by our dedicated admin team.</p>
+    </div>
+    <div class="feature">
+        <i class="fas fa-heart feature-icon"></i>
+        <h3>Like & Comment</h3>
+        <p>Engage with the community by liking and commenting on poems.</p>
+    </div>
+</section>
+
+<section id="categories" class="container categories">
+    <h2>Categories</h2>
+    <div class="category-list">
+        <a href="{{ url_for('categories') }}?category=Love & Heartbreak" class="category">Love & Heartbreak</a>
+        <a href="{{ url_for('categories') }}?category=Nature" class="category">Nature</a>
+        <a href="{{ url_for('categories') }}?category=Life & Growth" class="category">Life & Growth</a>
+        <a href="{{ url_for('categories') }}?category=Spoken Word" class="category">Spoken Word</a>
+        <a href="{{ url_for('categories') }}?category=Culture" class="category">Culture</a>
+        <a href="{{ url_for('categories') }}?category=Politics & Society" class="category">Politics & Society</a>
+    </div>
+</section>
+
+<section class="quote-of-day container">
+    <h2>Quote of the Day</h2>
+    <blockquote>
+        "The power of a writer lies in the courage to express truth through ink."
+        <cite>– Anonymous</cite>
+    </blockquote>
+</section>
+
+<section class="poem-of-day container">
+    <h2>Poem of the Day</h2>
+    <article>
+        <h3>"Ephemeral Moments" by Alex</h3>
+        <p>In the quiet dawn,<br /> I find solace,<br /> In the twirling leaves,<br /> I find hope...</p>
+        <a href="#" class="read-more">Read More</a>
+    </article>
+</section>
+
+<section class="poem-of-week container">
+    <h2>Poem of the Week</h2>
+    <article>
+        <h3>"Unfolding Wings" by Maya</h3>
+        <p>She stood beneath the rising sun,<br /> Dreams as wide as skies begun,<br /> Ink-stained hands and stardust heart,<br /> Ready now to play her part...</p>
+        <a href="#" class="read-more">Read Full Poem</a>
+    </article>
+</section>
+
+<section class="story-of-month container">
+    <h2>Story of the Month</h2>
+    <article>
+        <h3>"Shadows of the Promise" by Alphan</h3>
+        <p>A gripping tale of political betrayal and youth resilience that shook the nation and brought a wave of change...</p>
+        <a href="#" class="read-more">Read Full Story</a>
+    </article>
+</section>
+
+<section class="featured-writers container">
+    <h2>Featured Writers</h2>
+    <div class="writer">
+        <img src="{{ url_for('static', filename='images/jamie.jpeg') }}" alt="Jamie" />
+        <p>"Poetry is my voice." - Jamie</p>
+    </div>
+    <div class="writer">
+        <img src="{{ url_for('static', filename='images/writer2.jpg') }}" alt="Riley" />
+        <p>"Writing frees the soul." - Riley</p>
+    </div>
+</section>
+
+<section id="about" class="container about">
+    <h2>About</h2>
+    <p>The Young Writers Showcase Hub is a creative platform that empowers young poets and storytellers to share their voices, connect with fellow writers, and grow in their literary journey. Through curated features and a supportive community, we help emerging talents rise and shine.</p>
+</section>
+
+<section id="contact" class="container contact">
+    <h2>Contact Us</h2>
+    <form action="/contact" method="post" class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</section>
+{% endblock %}
