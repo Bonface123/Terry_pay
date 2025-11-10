@@ -1,0 +1,23 @@
+<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="25" fill="#0077B6" opacity="0.1"/>
+  
+  <!-- Wave elements -->
+  <path d="M5 35 Q15 25 25 35 T45 35" stroke="#0077B6" stroke-width="3" fill="none"/>
+  <path d="M5 40 Q15 30 25 40 T45 40" stroke="#0077B6" stroke-width="2" fill="none" opacity="0.7"/>
+  
+  <!-- Palm tree -->
+  <rect x="28" y="20" width="4" height="20" fill="#5C4033"/>
+  <ellipse cx="25" cy="18" rx="8" ry="4" fill="#228B22" transform="rotate(-20 25 18)"/>
+  <ellipse cx="35" cy="18" rx="8" ry="4" fill="#228B22" transform="rotate(20 35 18)"/>
+  <ellipse cx="30" cy="15" rx="8" ry="4" fill="#228B22"/>
+  
+  <!-- Sun -->
+  <circle cx="45" cy="15" r="6" fill="#F4E1C1"/>
+  <path d="M45 5 L45 9 M45 21 L45 25 M35 15 L39 15 M51 15 L55 15 M38 8 L40.5 10.5 M49.5 19.5 L52 22 M52 8 L49.5 10.5 M40.5 19.5 L38 22" stroke="#F4E1C1" stroke-width="2"/>
+  
+  <!-- Text -->
+  <text x="65" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0077B6">PWANI</text>
+  <text x="65" y="40" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#5C4033">SAFARIS</text>
+  <text x="65" y="50" font-family="Arial, sans-serif" font-size="8" fill="#666">Coastal Adventures</text>
+</svg>
